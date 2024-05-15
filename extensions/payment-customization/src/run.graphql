@@ -1,0 +1,18 @@
+query RunInput {
+  cart {
+    lines {
+      merchandise {
+        __typename
+        ...on ProductVariant {
+          product {
+            noafterpay: hasAnyTag(tags: ["noafterpay"])
+          }
+        }
+      }
+    }
+  }
+  paymentMethods {
+    id
+    name
+  }
+}
